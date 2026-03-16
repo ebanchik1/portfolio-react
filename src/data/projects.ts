@@ -11,6 +11,10 @@ export interface Project {
   techStack: string[];
   challenges: string[];
   url?: string;
+  process?: {
+    overview?: string;
+    sections: { heading: string; content: string[] }[];
+  };
 }
 
 export const projects: Project[] = [
@@ -77,20 +81,61 @@ export const projects: Project[] = [
     description:
       "Interactive Power BI dashboard for exploring top ETFs.",
     longDescription:
-      "A beginner-friendly interactive Power BI dashboard built for friends and family to explore and understand top ETFs. Data sourced from Alpha Vantage API, ETF.com, and Morningstar, with three main data tables joined by the ETF field.",
+      "I've always been into investing as a hobby, and over time, friends and family started coming to me with the classic question: \"How do I start investing?\" After seeing some of my wins (and hearing me go on about ETFs more times than they probably wanted), they got curious. My go-to advice? \"Just throw some money into a few solid ETFs and forget about it.\" But then came the follow-up: \"Wait... what's an ETF?\" Instead of giving the same spiel over and over, I decided to build this beginner-friendly dashboard. It's an interactive way for people to explore what ETFs are, how they work, and how they differ — without me turning into a full-time financial advisor at family dinners. Built with Microsoft Excel, Power BI, and a little help from ChatGPT (aka my unpaid intern).",
     features: [
-      "Line chart for performance trends",
-      "Bar chart for comparative analysis",
-      "KPI cards for key metrics",
-      "Pie chart for allocation breakdown",
-      "Slicer for dynamic filtering",
+      "Line chart: Daily ETF price trends over time",
+      "Bar chart: Side-by-side comparison of expense ratios and volatility",
+      "KPI cards: 1Y, 3Y, and 5Y returns + beta for selected ETF",
+      "Pie chart: Dynamic sector allocation that changes with ETF selection",
+      "Slicer: Dropdown to select and compare ETFs across all visuals",
     ],
-    techStack: ["Power BI", "Excel", "Alpha Vantage API"],
+    techStack: ["Power BI", "Excel / Google Sheets", "Alpha Vantage API", "ETF.com", "Morningstar"],
     challenges: [
       "Joining multiple data sources by ETF field",
       "Making complex financial data accessible to beginners",
+      "Cleaning and normalizing percentage values for accurate aggregation",
       "Designing intuitive visual layouts",
     ],
+    process: {
+      overview:
+        "The finished dashboard provides a streamlined, visual comparison of five widely held ETFs (SPY, QQQ, VTI, ARKK, VNQ), highlighting how they differ in cost, performance, risk, and sector exposure.",
+      sections: [
+        {
+          heading: "Data Sources",
+          content: [
+            "Price History Data — sourced from the Alpha Vantage API, pulling daily adjusted closing prices for SPY, QQQ, VTI, ARKK, and VNQ.",
+            "Performance & Risk Metrics — collected from ETF.com and Morningstar, including 1-Year, 3-Year, and 5-Year Return (%), Expense Ratio (%), Volatility (% Standard Deviation), and Beta.",
+            "Sector Allocation Data — manually compiled from ETF.com and Morningstar, covering sector weightings (Technology, Healthcare, Financials, etc.) for each ETF.",
+          ],
+        },
+        {
+          heading: "Data Modeling & Structure",
+          content: [
+            "etf_prices.csv — daily price data (Date, ETF Ticker, Adjusted Close Price), used for line chart visualization.",
+            "etf_metrics.csv — snapshot of each ETF's key performance and risk metrics, used for KPI cards and bar charts.",
+            "etf_sector_allocations.csv — sector weights within each ETF, used for pie chart visualization.",
+          ],
+        },
+        {
+          heading: "Relationships",
+          content: [
+            "In Power BI, one-to-many relationships were created between the etf_metrics table and the two other tables using the ETF column. This allows the ETF slicer to control all visuals seamlessly.",
+            "etf_metrics[ETF] → etf_prices[ETF]",
+            "etf_metrics[ETF] → etf_sector_allocations[ETF]",
+          ],
+        },
+        {
+          heading: "Calculations & Visuals",
+          content: [
+            "All percentage values were cleaned and normalized (e.g., \"12.4%\" → 0.124) for accurate aggregation and visualization.",
+            "Line chart uses non-summarized average of Adjusted Close for daily price trends.",
+            "Bar chart enables side-by-side comparison of expense ratios and volatility.",
+            "KPI cards display 1Y, 3Y, and 5Y returns plus beta for the selected ETF.",
+            "Pie chart dynamically updates sector allocation based on ETF selection.",
+          ],
+        },
+      ],
+    },
   },
   {
     slug: "trends-in-thought",

@@ -115,6 +115,39 @@ export default async function ProjectDetailPage(props: {
         </div>
       </FadeIn>
 
+      {/* Process */}
+      {project.process && (
+        <FadeIn delay={450}>
+          <div className="mt-10">
+            <h2 className="font-serif italic text-2xl mb-4">The Process</h2>
+            {project.process.overview && (
+              <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                {project.process.overview}
+              </p>
+            )}
+            <div className="space-y-6">
+              {project.process.sections.map((section, i) => (
+                <div key={i}>
+                  <h3 className="font-mono text-xs uppercase tracking-wider text-foreground mb-3">
+                    {section.heading}
+                  </h3>
+                  <ul className="space-y-2">
+                    {section.content.map((item, j) => (
+                      <li
+                        key={j}
+                        className="text-sm text-muted-foreground leading-relaxed pl-4 border-l-2 border-border"
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </FadeIn>
+      )}
+
       {/* Challenges */}
       {project.challenges.length > 0 && (
         <FadeIn delay={500}>
