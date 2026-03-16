@@ -14,7 +14,12 @@ export interface Project {
   url?: string;
   process?: {
     overview?: string;
-    sections: { heading: string; content: string[]; embeds?: string[] }[];
+    sections: {
+      heading: string;
+      content: string[];
+      embeds?: string[];
+      table?: { headers: string[]; rows: string[][] };
+    }[];
   };
   embedUrl?: string;
 }
@@ -196,27 +201,39 @@ export const projects: Project[] = [
         },
         {
           heading: "Phase 1 Historical Context",
-          content: [
-            "1800s — Romanticism, Industrial Revolution: personal and emotional concepts begin emerging in literature.",
-            "WWI (1914–1918) — Rise of disillusionment, existential dread, loss of meaning.",
-            "Post-WWII (1945+) — Global trauma + rebuilding triggers a boom in existentialism (Sartre, Camus, etc.).",
-            "1960s–70s — Civil rights, Cold War, counterculture drive rises in freedom, authenticity, subjectivity.",
-            "Post-9/11 (2001) — Global anxiety, surveillance, war on terror trigger spikes in despair, anxiety, meaning.",
-            "2008–2020 — Financial crisis, climate anxiety, social media, pandemic produce sharp rises in despair, anxiety, and search for meaning.",
-          ],
+          content: [],
+          table: {
+            headers: ["Year / Period", "Possible Influences"],
+            rows: [
+              ["1800s", "Romanticism, Industrial Revolution — personal/emotional concepts begin emerging"],
+              ["WWI (1914–1918)", "Rise of disillusionment, existential dread, loss of meaning"],
+              ["Post-WWII (1945+)", "Global trauma + rebuilding → boom in existentialism (Sartre, Camus, etc.)"],
+              ["1960s–70s", "Civil rights, Cold War, counterculture → rise in freedom, authenticity, subjectivity"],
+              ["Post-9/11 (2001)", "Global anxiety, surveillance, war on terror → spikes in despair, anxiety, meaning"],
+              ["2008–2020", "Financial crisis, climate anxiety, social media, pandemic → sharp rise in despair, anxiety, search for meaning"],
+            ],
+          },
         },
         {
           heading: "Phase 2: Philosophical Context",
           content: [
             "Having examined existentialism in isolation, Phase 2 compares it against other major schools of thought across the same timeline.",
-            "Existentialism — Individual freedom, meaning, and responsibility (Sartre, Camus, Kierkegaard, Nietzsche).",
-            "Pragmatism — American philosophical response focused on practicality (Peirce, James, Dewey).",
-            "Postmodernism — Successor/challenger to existentialism (Lyotard, Foucault, Derrida, Baudrillard).",
-            "Absurdism — Close cousin of existentialism (Camus, Ionesco, Beckett).",
-            "Utilitarianism — Ethical theory focused on outcomes over experience (Bentham, Mill, Singer).",
-            "Determinism — Opposes existentialism's emphasis on freedom/choice (Spinoza, Laplace, Skinner).",
-            "Nihilism — Often contrasted with existentialism's hope through meaning (Nietzsche, Schopenhauer, Cioran).",
-            "Stoicism — Ancient, revived during the modern wellness movement, especially 2010s (Marcus Aurelius, Seneca, Ryan Holiday).",
+          ],
+          table: {
+            headers: ["Philosophy", "Notes", "Key Figures"],
+            rows: [
+              ["Existentialism", "Focuses on individual freedom, meaning, and responsibility in an often irrational or meaningless world.", "Jean-Paul Sartre, Simone de Beauvoir, Albert Camus, Martin Heidegger, Søren Kierkegaard, Friedrich Nietzsche"],
+              ["Pragmatism", "An American philosophical response focused on practicality", "Charles Sanders Peirce, William James, John Dewey, Richard Rorty, Hilary Putnam"],
+              ["Postmodernism", "Often seen as successor or challenger to existentialism", "Jean-François Lyotard, Michel Foucault, Jacques Derrida, Jean Baudrillard, Richard Rorty"],
+              ["Absurdism", "Close cousin of existentialism — could compare or contrast", "Albert Camus, Eugène Ionesco, Samuel Beckett, Jean Genet"],
+              ["Utilitarianism", "Ethical theory focused on outcomes over experience", "Jeremy Bentham, John Stuart Mill, Henry Sidgwick, Peter Singer"],
+              ["Determinism", "Opposes existentialism's emphasis on freedom/choice", "Baruch Spinoza, Pierre-Simon Laplace, Clarence Darrow, B.F. Skinner, Daniel Dennett"],
+              ["Nihilism", "Often contrasted with existentialism's hope through meaning", "Friedrich Nietzsche, Arthur Schopenhauer, Jean Baudrillard, Emil Cioran, Michel Onfray"],
+              ["Stoicism", "Ancient, revived during modern wellness movement (esp. 2010s)", "Marcus Aurelius, Seneca, Epictetus, Zeno of Citium, Ryan Holiday, Massimo Pigliucci"],
+            ],
+          },
+          embeds: [
+            "https://books.google.com/ngrams/interactive_chart?content=existentialism,+stoicism,+nihilism,+determinism,+utilitarianism,+absurdism,+postmodernism,+pragmatism&year_start=1800&year_end=2022&corpus=en&smoothing=1",
           ],
         },
         {
