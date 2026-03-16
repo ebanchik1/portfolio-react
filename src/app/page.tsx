@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section - full viewport */}
-      <section className="w-full h-screen min-h-[500px] flex flex-col relative font-mono bg-white">
+      <section className="w-full h-dvh min-h-[500px] flex flex-col relative font-mono bg-white pb-16 sm:pb-0">
         <div className="pt-24 text-5xl sm:text-7xl md:text-8xl text-black w-full text-center font-serif italic px-4">
           Eli Banchik
         </div>
