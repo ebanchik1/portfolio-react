@@ -8,6 +8,7 @@ export interface Project {
   description: string;
   longDescription: string;
   features: string[];
+  featuresHeading?: string;
   techStack: string[];
   challenges: string[];
   url?: string;
@@ -150,20 +151,97 @@ export const projects: Project[] = [
     description:
       "Data-driven analysis of philosophical themes in literature over two centuries.",
     longDescription:
-      "A data-driven exploration of philosophical themes in published literature over two centuries using Google Books Ngram Viewer. Phase 1 focused on existentialism-related terms, while Phase 2 expanded to compare entire schools of thought.",
+      "This in-progress project blends my passion for philosophy with my growing experience in data analytics. I'm using historical literary data from the Google Books Ngram Viewer to track how philosophical concepts like \"existentialism,\" \"stoicism,\" \"freedom,\" and \"truth\" have appeared in published books over the past two centuries. The goal is to visualize how ideas rise and fall over time, and to tell a story about how culture and thought evolve — not just with words, but with data. This project is part of my effort to merge personal interests with professional skills, showing how data analysis can be applied beyond finance or business, into the humanities and personal curiosity.",
     features: [
-      "Phase 1: Existentialism term frequency analysis",
-      "Phase 2: Schools of thought comparison",
-      "Key observation: despair/anxiety rise post-2000",
-      "Key observation: determinism leading in the 2020s",
-      "Key observation: stoicism climbing steadily",
+      "Which philosophical movements have gained or lost cultural attention over time — and what does that suggest about society's shifting values?",
+      "What historical events (wars, cultural shifts, economic crises) correspond with spikes or declines in existential themes?",
+      "How have core existentialist concepts like \"freedom,\" \"meaning,\" and \"anxiety\" evolved in literature over the past two centuries?",
+      "Are we moving toward a more emotionally grounded, practical worldview — or away from deeper philosophical inquiry?",
+      "Can data help us uncover patterns in how we collectively search for meaning, cope with despair, or reframe identity over time?",
     ],
-    techStack: ["Google Books Ngram Viewer", "Data analysis"],
+    featuresHeading: "Key Questions",
+    techStack: ["Google Books Ngram Viewer", "Data analysis", "Cultural research"],
     challenges: [
+      "No access to raw data from Ngram Viewer results — limited to visual output",
       "Normalizing data across two centuries of literature",
-      "Interpreting cultural shifts from word frequency data",
-      "Serving as the research precursor to Philosophia",
+      "Interpreting cultural shifts from word frequency data without overfitting narratives",
+      "Serving as the research precursor to the Philosophia chatbot",
     ],
+    process: {
+      overview:
+        "The project unfolds in two phases: Phase 1 zeroes in on existentialism — charting how key terms have entered and exited the cultural zeitgeist. Phase 2 zooms out to compare existentialism against other major schools of thought across the same 200+ year timeline.",
+      sections: [
+        {
+          heading: "Phase 1: Existentialism",
+          content: [
+            "Being my brand of choice, I started by charting how existentialist concepts and key terms have entered and exited the zeitgeist using Google's Ngram Viewer over 200+ years.",
+            "Terms tracked: existence, freedom, absurd, alienation, anxiety, despair, death, meaning, authenticity, choice, subjectivity.",
+            "I separated them into two charts to reduce clutter — the most popular terms from the rest so the chart isn't skewed and less popular terms remain legible.",
+          ],
+        },
+        {
+          heading: "Phase 1 Observations",
+          content: [
+            "Despair has a massive rise post-2000 — reflecting growing mental health awareness, the rise of the Internet, and cultural pessimism (post-9/11, financial crisis anxieties).",
+            "Absurd, subjectivity, and authenticity begin rising around the 1950s–60s, aligned with postwar existentialism and civil rights movements — and modern French Existentialism (Sartre, Camus, de Beauvoir).",
+            "Alienation rises again in the 1980s–2000s, possibly reflecting increasing disconnection in a tech-driven society (video games, personal computers).",
+            "Meaning climbs sharply after WWII with another surge in the 1970s–80s, accelerating after 2000 — tied to rising secularism, therapy culture, and personal development discourse.",
+            "Anxiety has a sharp, continuous rise from the 1980s onward — reflecting increased discussion of mental health and the modern condition.",
+            "In the 70s and 80s there were acute rises in the word \"meaning\" which could correlate with the introduction of certain technology. However, it did not correlate with an increase in despair. That only begins entering the 21st century — implying we are deprived of meaning, now in conjunction with anxiety (not a good combo). This paints a highly negative outlook on society and a demand for literature that addresses it.",
+          ],
+        },
+        {
+          heading: "Phase 1 Historical Context",
+          content: [
+            "1800s — Romanticism, Industrial Revolution: personal and emotional concepts begin emerging in literature.",
+            "WWI (1914–1918) — Rise of disillusionment, existential dread, loss of meaning.",
+            "Post-WWII (1945+) — Global trauma + rebuilding triggers a boom in existentialism (Sartre, Camus, etc.).",
+            "1960s–70s — Civil rights, Cold War, counterculture drive rises in freedom, authenticity, subjectivity.",
+            "Post-9/11 (2001) — Global anxiety, surveillance, war on terror trigger spikes in despair, anxiety, meaning.",
+            "2008–2020 — Financial crisis, climate anxiety, social media, pandemic produce sharp rises in despair, anxiety, and search for meaning.",
+          ],
+        },
+        {
+          heading: "Phase 2: Philosophical Context",
+          content: [
+            "Having examined existentialism in isolation, Phase 2 compares it against other major schools of thought across the same timeline.",
+            "Existentialism — Individual freedom, meaning, and responsibility (Sartre, Camus, Kierkegaard, Nietzsche).",
+            "Pragmatism — American philosophical response focused on practicality (Peirce, James, Dewey).",
+            "Postmodernism — Successor/challenger to existentialism (Lyotard, Foucault, Derrida, Baudrillard).",
+            "Absurdism — Close cousin of existentialism (Camus, Ionesco, Beckett).",
+            "Utilitarianism — Ethical theory focused on outcomes over experience (Bentham, Mill, Singer).",
+            "Determinism — Opposes existentialism's emphasis on freedom/choice (Spinoza, Laplace, Skinner).",
+            "Nihilism — Often contrasted with existentialism's hope through meaning (Nietzsche, Schopenhauer, Cioran).",
+            "Stoicism — Ancient, revived during the modern wellness movement, especially 2010s (Marcus Aurelius, Seneca, Ryan Holiday).",
+          ],
+        },
+        {
+          heading: "Phase 2 Observations",
+          content: [
+            "Determinism is leading in the 2020s — reflecting growing interest in neuroscience, behavioral science, algorithms, and simulation theory.",
+            "Pragmatism has surged, signaling a cultural shift toward practical, outcome-oriented thinking — driven by startup culture, self-help, and real-world problem-solving.",
+            "Stoicism is climbing steadily, thanks to its modern revival in wellness, productivity, and mental toughness spaces (Ryan Holiday, Tim Ferriss fans).",
+            "Existentialism and Postmodernism have declined since their peaks — a potential sign of disillusionment with purely abstract or identity-centric philosophies in favor of frameworks that offer control or clarity.",
+            "Postmodernism peaked around 2000–2010 then declined — possibly reflecting backlash against relativism and a move toward fact-checking culture and science-based approaches.",
+          ],
+        },
+        {
+          heading: "Crossover Moments",
+          content: [
+            "Pragmatism overtakes Existentialism (late 2000s–early 2010s) — reflecting the rise of tech culture, entrepreneurship, and self-help where the emphasis is on what works, not what it means.",
+            "Determinism overtakes Existentialism (2010s) — reflecting the mainstreaming of neuroscience, algorithms, and data-driven understanding of behavior. Echoes the growing belief that actions are shaped more by systems than pure individual freedom.",
+            "Stoicism overtakes Absurdism (2000s) — signaling a cultural pivot from embracing chaos to managing emotion and discipline, fueled by social media fatigue, productivity culture, and a desire for resilience.",
+          ],
+        },
+        {
+          heading: "What Does It Mean?",
+          content: [
+            "We seem to be in a cultural moment that prioritizes structure, control, and results: Pragmatism and determinism offer certainty and efficiency. Stoicism offers emotional regulation and resilience. Meanwhile, existential wandering and postmodern skepticism are fading — perhaps because people want answers and systems, not ambiguity.",
+            "Is this true for me? No. But it is interesting to see where everyone else's head is at. I would argue because of all of these oppressing external factors, it is more important than ever to delve into topics like existentialism and metaphysics. To engage with the abstract and get comfortable with the ambiguous nature of it all. In my experience, it is freeing and empowering, strengthening the psyche (after an existential crisis or two).",
+          ],
+        },
+      ],
+    },
   },
   {
     slug: "techstars",

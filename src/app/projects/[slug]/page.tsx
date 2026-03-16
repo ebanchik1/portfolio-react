@@ -109,7 +109,7 @@ export default async function ProjectDetailPage(props: {
       {project.features.length > 0 && (
         <FadeIn delay={300}>
           <div className="mt-10">
-            <h2 className="font-serif italic text-2xl mb-4">Key Features</h2>
+            <h2 className="font-serif italic text-2xl mb-4">{project.featuresHeading || "Key Features"}</h2>
             <ul className="space-y-2">
               {project.features.map((feature, i) => (
                 <li
