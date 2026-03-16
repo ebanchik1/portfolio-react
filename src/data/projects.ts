@@ -15,6 +15,7 @@ export interface Project {
     overview?: string;
     sections: { heading: string; content: string[] }[];
   };
+  embedUrl?: string;
 }
 
 export const projects: Project[] = [
@@ -136,6 +137,8 @@ export const projects: Project[] = [
         },
       ],
     },
+    embedUrl:
+      "https://app.powerbi.com/view?r=eyJrIjoiY2FjOGI5YWMtZjhhYy00NGExLWI4MWYtMGE4N2UyODIyMjhhIiwidCI6IjdkMTgwMTU5LTNkMWUtNDIwYy1iODNiLTQ3ZmUxYWZkYzZlMiIsImMiOjJ9",
   },
   {
     slug: "trends-in-thought",

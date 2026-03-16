@@ -84,6 +84,27 @@ export default async function ProjectDetailPage(props: {
         </div>
       </FadeIn>
 
+      {/* Embed */}
+      {project.embedUrl && (
+        <FadeIn delay={250}>
+          <div className="mt-10">
+            <h2 className="font-serif italic text-2xl mb-4">Live Demo</h2>
+            <div className="relative w-full overflow-hidden rounded-xl border border-border" style={{ paddingBottom: "59.8%" }}>
+              <iframe
+                title={`${project.title} embed`}
+                src={project.embedUrl}
+                className="absolute inset-0 w-full h-full"
+                frameBorder="0"
+                allowFullScreen
+              />
+            </div>
+            <p className="font-mono text-xs text-muted-foreground mt-2">
+              Interactive — click around and use the full-screen button in the bottom right.
+            </p>
+          </div>
+        </FadeIn>
+      )}
+
       {/* Features */}
       {project.features.length > 0 && (
         <FadeIn delay={300}>
