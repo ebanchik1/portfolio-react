@@ -14,7 +14,7 @@ export interface Project {
   url?: string;
   process?: {
     overview?: string;
-    sections: { heading: string; content: string[] }[];
+    sections: { heading: string; content: string[]; embeds?: string[] }[];
   };
   embedUrl?: string;
 }
@@ -177,6 +177,10 @@ export const projects: Project[] = [
             "Being my brand of choice, I started by charting how existentialist concepts and key terms have entered and exited the zeitgeist using Google's Ngram Viewer over 200+ years.",
             "Terms tracked: existence, freedom, absurd, alienation, anxiety, despair, death, meaning, authenticity, choice, subjectivity.",
             "I separated them into two charts to reduce clutter — the most popular terms from the rest so the chart isn't skewed and less popular terms remain legible.",
+          ],
+          embeds: [
+            "https://books.google.com/ngrams/interactive_chart?content=absurd,alienation,despair,authenticity,subjectivity&year_start=1800&year_end=2022&case_insensitive=true&corpus=en&smoothing=1",
+            "https://books.google.com/ngrams/interactive_chart?content=existence,freedom,meaning,anxiety,existence&year_start=1800&year_end=2022&case_insensitive=true&corpus=en&smoothing=1",
           ],
         },
         {

@@ -162,6 +162,25 @@ export default async function ProjectDetailPage(props: {
                       </li>
                     ))}
                   </ul>
+                  {section.embeds && section.embeds.length > 0 && (
+                    <div className="mt-4 space-y-4">
+                      {section.embeds.map((embedSrc, j) => (
+                        <div
+                          key={j}
+                          className="relative w-full overflow-hidden rounded-xl border border-border"
+                          style={{ paddingBottom: "55.5%" }}
+                        >
+                          <iframe
+                            title={`${section.heading} chart ${j + 1}`}
+                            src={embedSrc}
+                            className="absolute inset-0 w-full h-full"
+                            frameBorder="0"
+                            scrolling="no"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
