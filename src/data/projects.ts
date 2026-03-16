@@ -255,6 +255,19 @@ export const projects: Project[] = [
           ],
         },
         {
+          heading: "Phase 2 Historical Context",
+          content: [],
+          table: {
+            headers: ["Period", "Possible Influences"],
+            rows: [
+              ["2020s", "Stoicism resurges with wellness, self-help, and burnout culture"],
+              ["2010s - 2020s", "Rise of tech, psychology, and data science --> determinism gains steam"],
+              ["2008 - 2010s", "Financial crisis --> interest in stability, practicality (pragmatism, stoicism)"],
+              ["1990s - 2000s", "Postmodernism thrives amid identity discourse, globalization, media fragmentation"],
+            ],
+          },
+        },
+        {
           heading: "What Does It Mean?",
           content: [
             "We seem to be in a cultural moment that prioritizes structure, control, and results: Pragmatism and determinism offer certainty and efficiency. Stoicism offers emotional regulation and resilience. Meanwhile, existential wandering and postmodern skepticism are fading — perhaps because people want answers and systems, not ambiguity.",
