@@ -181,6 +181,42 @@ export default async function ProjectDetailPage(props: {
                       ))}
                     </div>
                   )}
+                  {section.table && (
+                    <div className="mt-4 overflow-x-auto">
+                      <table className="w-full text-sm">
+                        <thead>
+                          <tr>
+                            {section.table.headers.map((header, j) => (
+                              <th
+                                key={j}
+                                className="font-mono text-xs uppercase tracking-wider text-foreground text-left pb-3 pr-6 border-b-2 border-foreground"
+                              >
+                                {header}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {section.table.rows.map((row, j) => (
+                            <tr key={j} className="border-b border-border">
+                              {row.map((cell, k) => (
+                                <td
+                                  key={k}
+                                  className={`py-3 pr-6 ${
+                                    k === 0
+                                      ? "font-mono text-xs text-foreground whitespace-nowrap"
+                                      : "text-muted-foreground leading-relaxed"
+                                  }`}
+                                >
+                                  {cell}
+                                </td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
