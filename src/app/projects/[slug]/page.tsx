@@ -289,6 +289,31 @@ export default async function ProjectDetailPage(props: {
         </FadeIn>
       )}
 
+      {/* Code Snippets */}
+      {project.codeSnippets && project.codeSnippets.length > 0 && (
+        <FadeIn delay={550}>
+          <div className="mt-10">
+            <h2 className="font-serif italic text-2xl mb-4">Code Snippets</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {project.codeSnippets.map((src, i) => (
+                <div
+                  key={i}
+                  className="overflow-hidden rounded-xl border border-border"
+                >
+                  <Image
+                    src={src}
+                    alt={`Code snippet ${i + 1}`}
+                    width={800}
+                    height={500}
+                    className="w-full h-auto"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </FadeIn>
+      )}
+
       {/* Bottom nav */}
       <FadeIn delay={600}>
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mt-16 pt-8 border-t border-border">

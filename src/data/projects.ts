@@ -24,6 +24,7 @@ export interface Project {
   embedUrl?: string;
   images?: { src: string; alt: string }[];
   videoUrl?: string;
+  codeSnippets?: string[];
 }
 
 export const projects: Project[] = [
@@ -359,5 +360,11 @@ export const projects: Project[] = [
       "Building a polished capstone project end-to-end",
     ],
     videoUrl: "/videos/armoire-demo.mp4",
+    codeSnippets: [
+      "/images/armoire/code-snippet-1.png",
+      "/images/armoire/code-snippet-2.png",
+      "/images/armoire/code-snippet-3.png",
+      "/images/armoire/code-snippet-4.png",
+    ],
   },
 ];
