@@ -23,6 +23,7 @@ export interface Project {
   };
   embedUrl?: string;
   images?: { src: string; alt: string }[];
+  videoUrl?: string;
 }
 
 export const projects: Project[] = [
@@ -357,5 +358,6 @@ export const projects: Project[] = [
       "Integrating JWT auth across Flask and React",
       "Building a polished capstone project end-to-end",
     ],
+    videoUrl: "/videos/armoire-demo.mp4",
   },
 ];

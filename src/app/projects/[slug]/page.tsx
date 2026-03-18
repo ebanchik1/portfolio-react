@@ -111,6 +111,23 @@ export default async function ProjectDetailPage(props: {
         </FadeIn>
       )}
 
+      {/* Video */}
+      {project.videoUrl && (
+        <FadeIn delay={250}>
+          <div className="mt-10">
+            <h2 className="font-serif italic text-2xl mb-4">Demo</h2>
+            <div className="overflow-hidden rounded-xl border border-border">
+              <video
+                src={project.videoUrl}
+                controls
+                playsInline
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
+        </FadeIn>
+      )}
+
       {/* Embed */}
       {project.embedUrl && (
         <FadeIn delay={250}>
