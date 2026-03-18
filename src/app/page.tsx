@@ -10,6 +10,7 @@ import { HighlightBar } from "@/components/highlight-bar"
 import { FadeIn } from "@/components/fade-in"
 import { projects } from "@/data/projects"
 import { ChatWidget } from "@/components/chat-widget"
+import { ScrollInertia } from "@/components/scroll-inertia"
 
 const GravityHero = dynamic(() => import("@/components/gravity-hero"), {
   ssr: false,
@@ -36,9 +37,11 @@ export default function Home() {
       <section className="py-20 md:py-28 px-6">
         <div className="max-w-4xl mx-auto">
           <FadeIn>
-            <h2 className="font-serif italic text-3xl md:text-4xl lg:text-5xl leading-tight mb-6">
-              I build with AI across industries — from data and marketing to legal tech and product.
-            </h2>
+            <ScrollInertia weight={0.35}>
+              <h2 className="font-serif italic text-3xl md:text-4xl lg:text-5xl leading-tight mb-6">
+                I build with AI across industries — from data and marketing to legal tech and product.
+              </h2>
+            </ScrollInertia>
           </FadeIn>
           <FadeIn delay={100}>
             <p className="text-base md:text-lg text-muted-foreground font-sans leading-relaxed max-w-2xl mb-10">
@@ -67,7 +70,9 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
             {featuredProjects.map((project, i) => (
               <FadeIn key={project.slug} delay={i * 100}>
-                <ProjectCard project={project} />
+                <ScrollInertia weight={0.2 + i * 0.05}>
+                  <ProjectCard project={project} />
+                </ScrollInertia>
               </FadeIn>
             ))}
           </div>
@@ -101,7 +106,9 @@ export default function Home() {
       <section className="py-20 md:py-28 px-6 bg-secondary/50">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
-            <HighlightBar />
+            <ScrollInertia weight={0.15}>
+              <HighlightBar />
+            </ScrollInertia>
           </FadeIn>
         </div>
       </section>

@@ -284,7 +284,13 @@ const Gravity = forwardRef<GravityRef, GravityProps>(
         },
       })
 
+      // Allow vertical scrolling through the canvas
+      render.current.canvas.style.touchAction = "pan-y"
+      render.current.canvas.style.pointerEvents = "auto"
+
       const mouse = Mouse.create(render.current.canvas)
+      // Prevent Matter.js from calling preventDefault on wheel events (blocks page scroll)
+      mouse.element.removeEventListener("wheel", (mouse as any).mousewheel)
       mouseConstraint.current = MouseConstraint.create(engine.current, {
         mouse: mouse,
         constraint: {
