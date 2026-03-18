@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react"
 import { projects } from "@/data/projects"
 import { PillTag } from "@/components/pill-tag"
@@ -83,6 +84,32 @@ export default async function ProjectDetailPage(props: {
           </p>
         </div>
       </FadeIn>
+
+      {/* Images */}
+      {project.images && project.images.length > 0 && (
+        <FadeIn delay={250}>
+          <div className="mt-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {project.images.map((img, i) => (
+                <div
+                  key={i}
+                  className={`relative overflow-hidden rounded-xl border border-border ${
+                    i === 0 ? "sm:col-span-2" : ""
+                  }`}
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    width={1200}
+                    height={800}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </FadeIn>
+      )}
 
       {/* Embed */}
       {project.embedUrl && (

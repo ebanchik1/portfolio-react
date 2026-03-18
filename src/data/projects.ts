@@ -22,6 +22,7 @@ export interface Project {
     }[];
   };
   embedUrl?: string;
+  images?: { src: string; alt: string }[];
 }
 
 export const projects: Project[] = [
@@ -300,6 +301,11 @@ export const projects: Project[] = [
       "Building a complete MVP in a 50-hour sprint",
       "Validating the market opportunity under time pressure",
       "Coordinating a cross-functional team on a tight deadline",
+    ],
+    images: [
+      { src: "/images/techstars/first-place.png", alt: "Team Open Asphalt holding the 1st place check at LMU Techstars Sprint" },
+      { src: "/images/techstars/team-working.png", alt: "Team working on Open Asphalt during the 50-hour sprint" },
+      { src: "/images/techstars/group-photo.png", alt: "All Techstars Startup Sprint participants group photo at LMU" },
     ],
   },
   {
