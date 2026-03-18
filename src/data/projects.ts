@@ -334,6 +334,12 @@ export const projects: Project[] = [
       "Implementing real-time data synchronization",
       "Designing an intuitive multi-page mobile experience",
     ],
+    videoUrl: "/images/split/demo.mp4",
+    images: [
+      { src: "/images/split/screenshot-1.png", alt: "Split app workout tracking screen" },
+      { src: "/images/split/screenshot-2.png", alt: "Split app exercise details and sets" },
+      { src: "/images/split/screenshot-3.png", alt: "Split app weekly program overview" },
+    ],
   },
   {
     slug: "armoire",
