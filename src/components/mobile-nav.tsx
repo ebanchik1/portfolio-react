@@ -23,7 +23,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
           <SheetTitle className="font-serif text-lg">Eli Banchik</SheetTitle>
         </SheetHeader>
 
-        <nav className="flex flex-col gap-6 mt-8 flex-1">
+        <nav className="flex flex-col gap-6 mt-8 flex-1 pl-4">
           {navLinks.map((link) => (
             <Link
               key={link.path}
