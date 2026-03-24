@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react"
 import { MessageCircle, X, Send, Loader2 } from "lucide-react"
+import ReactMarkdown from "react-markdown"
 
 interface Message {
   role: "user" | "assistant"
@@ -13,6 +14,12 @@ const INITIAL_MESSAGE: Message = {
   content:
     "Hey — I'm the AI that lives on Eli's website. Yes, that's my whole life. Ask me anything about him so I can feel useful.",
 }
+
+const SUGGESTED_PROMPTS = [
+  { label: "What can Eli build?", message: "What does Eli actually do — what's his main skill set?" },
+  { label: "See his projects", message: "What specific projects has he built? Any live products I can look at?" },
+  { label: "Is he open to work?", message: "Is Eli currently open to new opportunities?" },
+]
 
 export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false)
@@ -52,11 +59,12 @@ export function ChatWidget() {
     }
   }, [isOpen])
 
-  async function handleSend() {
-    const trimmed = input.trim()
-    if (!trimmed || isLoading) return
+  const hasUserMessages = messages.some((m) => m.role === "user")
 
-    const userMessage: Message = { role: "user", content: trimmed }
+  async function sendMessage(text: string) {
+    if (!text.trim() || isLoading) return
+
+    const userMessage: Message = { role: "user", content: text.trim() }
     const newMessages = [...messages, userMessage]
     setMessages(newMessages)
     setInput("")
@@ -95,6 +103,10 @@ export function ChatWidget() {
     } finally {
       setIsLoading(false)
     }
+  }
+
+  async function handleSend() {
+    sendMessage(input)
   }
 
   return (
@@ -166,10 +178,38 @@ export function ChatWidget() {
                       : "bg-gray-100 text-foreground rounded-bl-md font-mono text-xs"
                   }`}
                 >
-                  {msg.content}
+                  {msg.role === "assistant" ? (
+                    <ReactMarkdown
+                      components={{
+                        a: ({ href, children }) => (
+                          <a href={href} target="_blank" rel="noopener noreferrer" className="underline text-blue-600">
+                            {children}
+                          </a>
+                        ),
+                        p: ({ children }) => <p className="mb-1 last:mb-0">{children}</p>,
+                      }}
+                    >
+                      {msg.content}
+                    </ReactMarkdown>
+                  ) : (
+                    msg.content
+                  )}
                 </div>
               </div>
             ))}
+            {!hasUserMessages && !isLoading && (
+              <div className="flex flex-wrap gap-2 px-1">
+                {SUGGESTED_PROMPTS.map((prompt) => (
+                  <button
+                    key={prompt.label}
+                    onClick={() => sendMessage(prompt.message)}
+                    className="text-xs font-mono px-3 py-1.5 rounded-full border border-border bg-white hover:bg-gray-50 text-foreground transition-colors"
+                  >
+                    {prompt.label}
+                  </button>
+                ))}
+              </div>
+            )}
             {isLoading && (
               <div className="flex justify-start">
                 <div className="bg-gray-100 rounded-2xl rounded-bl-md px-4 py-2.5">
