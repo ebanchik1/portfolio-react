@@ -88,17 +88,17 @@ export async function POST(request: NextRequest) {
 
     const { messages } = await request.json();
 
-    // Log incoming messages for analytics (visible in Vercel Function Logs)
-    const lastMessage = messages?.[messages.length - 1];
-    if (lastMessage?.role === "user") {
-      console.log(`[CHAT] ${new Date().toISOString()} | ${lastMessage.content}`);
-    }
-
     if (!messages || !Array.isArray(messages) || messages.length === 0) {
       return NextResponse.json(
         { error: "Messages are required" },
         { status: 400 }
       );
+    }
+
+    // Log incoming messages for analytics (visible in Vercel Function Logs)
+    const lastMessage = messages[messages.length - 1];
+    if (lastMessage?.role === "user") {
+      console.log(`[CHAT] ${new Date().toISOString()} | ${lastMessage.content}`);
     }
 
     const genAI = new GoogleGenerativeAI(apiKey);
@@ -113,8 +113,6 @@ export async function POST(request: NextRequest) {
         parts: [{ text: msg.content }],
       })),
     });
-
-    const lastMessage = messages[messages.length - 1];
     const result = await chat.sendMessage(lastMessage.content);
     const response = result.response.text();
 
