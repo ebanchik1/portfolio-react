@@ -29,6 +29,62 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "pathway",
+    title: "Pathway",
+    subtitle: "Allied Health Referral Booking & Loop Closure Platform",
+    tags: ["Next.js", "Healthcare", "Product", "UX"],
+    category: "Product",
+    color: "#10b981",
+    description:
+      "A referral booking prototype that tackles the 41% no-book rate in allied health with SMS-first patient engagement and automated loop closure.",
+    longDescription:
+      "41% of referred patients in allied health never book their appointment. The problem isn't sending the referral — most systems handle that. It's everything after. Patient leaves the clinic, means to call, doesn't, and the referral dies on a sticky note. Pathway is a prototype where the SMS goes out while the patient is still in the room — two taps to book on mobile, no app download, no account creation.",
+    features: [
+      "In-room SMS referral — practitioner sends the link while the patient is still there",
+      "Two-tap mobile booking — no app download, no account creation",
+      "Elderly patient fallback — 'Reply YES and we'll book for you' after a few days",
+      "Automated loop closure — one-click post-visit summary flows back to the referring practitioner",
+      "Four persona journeys — click through the entire flow from referral to loop closure",
+      "Conversion model benchmarked against published studies",
+    ],
+    featuresHeading: "How It Works",
+    techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
+    challenges: [
+      "Designing for the lowest-tech user — a 67-year-old who trusts her physio but won't navigate a new portal",
+      "Balancing prototype fidelity with speed — real slot selection, connected screens, four personas",
+      "Benchmarking conversion estimates against published referral completion studies",
+      "Building loop closure into a workflow where a third to half of loops never close",
+    ],
+    url: "https://pathway-referral.vercel.app/",
+    process: {
+      overview:
+        "Built as a product growth challenge exploring why allied health referrals fail after they're sent.",
+      sections: [
+        {
+          heading: "The Problem",
+          content: [
+            "41% of referred patients in allied health never book their appointment. The referral gets sent, the patient leaves the clinic, means to call, doesn't, and the referral dies on a sticky note.",
+            "Somewhere between a third and half of referral loops never close. The referring practitioner sends someone off and just... never hears what happened.",
+          ],
+        },
+        {
+          heading: "The Solution",
+          content: [
+            "SMS goes out while the patient is still in the room. The practitioner literally says 'I just sent you a link, let's make sure you got it.' Two taps to book on mobile. No app download, no account creation.",
+            "For elderly patients who don't book after a few days: 'Reply YES and we'll book for you.' One word reply on any phone. Staff handles the rest.",
+            "Loop closure happens automatically — a one-click post-visit summary flows back to the referring practitioner after the appointment.",
+          ],
+        },
+        {
+          heading: "The Prototype",
+          content: [
+            "A live Next.js app with four personas, connected screens, real slot selection, and a conversion model benchmarked against published studies. You can click through the entire journey from referral to loop closure.",
+          ],
+        },
+      ],
+    },
+  },
+  {
     slug: "scholarshipiq",
     title: "ScholarshipIQ",
     subtitle: "AI-Powered Law School Admissions & Scholarship Estimator",
@@ -372,61 +428,5 @@ export const projects: Project[] = [
       "/images/armoire/code-snippet-3.png",
       "/images/armoire/code-snippet-4.png",
     ],
-  },
-  {
-    slug: "pathway",
-    title: "Pathway",
-    subtitle: "Allied Health Referral Booking & Loop Closure Platform",
-    tags: ["Next.js", "Healthcare", "Product", "UX"],
-    category: "Product",
-    color: "#10b981",
-    description:
-      "A referral booking prototype that tackles the 41% no-book rate in allied health with SMS-first patient engagement and automated loop closure.",
-    longDescription:
-      "41% of referred patients in allied health never book their appointment. The problem isn't sending the referral — most systems handle that. It's everything after. Patient leaves the clinic, means to call, doesn't, and the referral dies on a sticky note. Pathway is a prototype where the SMS goes out while the patient is still in the room — two taps to book on mobile, no app download, no account creation.",
-    features: [
-      "In-room SMS referral — practitioner sends the link while the patient is still there",
-      "Two-tap mobile booking — no app download, no account creation",
-      "Elderly patient fallback — 'Reply YES and we'll book for you' after a few days",
-      "Automated loop closure — one-click post-visit summary flows back to the referring practitioner",
-      "Four persona journeys — click through the entire flow from referral to loop closure",
-      "Conversion model benchmarked against published studies",
-    ],
-    featuresHeading: "How It Works",
-    techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
-    challenges: [
-      "Designing for the lowest-tech user — a 67-year-old who trusts her physio but won't navigate a new portal",
-      "Balancing prototype fidelity with speed — real slot selection, connected screens, four personas",
-      "Benchmarking conversion estimates against published referral completion studies",
-      "Building loop closure into a workflow where a third to half of loops never close",
-    ],
-    url: "https://pathway-referral.vercel.app/",
-    process: {
-      overview:
-        "Built as a product growth challenge exploring why allied health referrals fail after they're sent.",
-      sections: [
-        {
-          heading: "The Problem",
-          content: [
-            "41% of referred patients in allied health never book their appointment. The referral gets sent, the patient leaves the clinic, means to call, doesn't, and the referral dies on a sticky note.",
-            "Somewhere between a third and half of referral loops never close. The referring practitioner sends someone off and just... never hears what happened.",
-          ],
-        },
-        {
-          heading: "The Solution",
-          content: [
-            "SMS goes out while the patient is still in the room. The practitioner literally says 'I just sent you a link, let's make sure you got it.' Two taps to book on mobile. No app download, no account creation.",
-            "For elderly patients who don't book after a few days: 'Reply YES and we'll book for you.' One word reply on any phone. Staff handles the rest.",
-            "Loop closure happens automatically — a one-click post-visit summary flows back to the referring practitioner after the appointment.",
-          ],
-        },
-        {
-          heading: "The Prototype",
-          content: [
-            "A live Next.js app with four personas, connected screens, real slot selection, and a conversion model benchmarked against published studies. You can click through the entire journey from referral to loop closure.",
-          ],
-        },
-      ],
-    },
   },
 ];
