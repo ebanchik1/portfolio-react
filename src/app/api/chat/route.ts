@@ -31,7 +31,8 @@ PROJECTS (include live links as markdown hyperlinks when mentioning these):
 6. Split — iOS fitness app with Ruby on Rails backend + Swift frontend. Full CRUD, auth, real-time data.
 7. Armoire — Capstone wardrobe management app. React + TypeScript + Flask + Bootstrap + JWT auth.
 8. Stock Trading Bot — AI-powered automated trading tool.
-9. Various custom AI tools for personal and professional use.
+9. Pathway — Allied health referral booking prototype. Tackles the 41% no-book rate with SMS-first patient engagement sent while the patient is still in the room, elderly patient fallback ("Reply YES and we'll book for you"), and automated loop closure. Live at: [Pathway](https://pathway-referral.vercel.app/)
+10. Various custom AI tools for personal and professional use.
 
 AVAILABILITY:
 Eli is always open to the right opportunities. He's especially interested in positions/projects at the intersection of AI, product, and legal tech. If someone asks if he's available or open to work, confirm that he is and encourage them to reach out via the Contact section or the "Get in Touch" button.
