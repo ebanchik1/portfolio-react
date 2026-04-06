@@ -160,10 +160,11 @@ export function HorizontalTimeline() {
   }, []);
 
   // Total horizontal distance to travel
-  // Each card ~470px (450 + gap), 9 cards, minus one viewport width
+  // Each card ~470px (450 + gap), plus extra padding so last card is fully visible
   const cardWidth = 470; // approximate card + gap
-  const totalWidth = cardWidth * timeline.length;
-  const translateX = -progress * (totalWidth - (typeof window !== "undefined" ? window.innerWidth : 1280));
+  const totalWidth = cardWidth * timeline.length + 100; // extra padding for last card
+  const viewportWidth = typeof window !== "undefined" ? window.innerWidth : 1280;
+  const translateX = -progress * Math.max(0, totalWidth - viewportWidth + 48);
 
   const currentIndex = Math.round(progress * (timeline.length - 1));
   const currentColor = timeline[currentIndex]?.color || "#0015ff";
@@ -173,7 +174,7 @@ export function HorizontalTimeline() {
     // Height = viewport + enough scroll distance to move through all cards
     <div
       ref={sectionRef}
-      style={{ height: `${timeline.length * 55 + 100}vh` }}
+      style={{ height: `${timeline.length * 60 + 100}vh` }}
     >
       {/* Sticky container pins the cards while scrolling */}
       <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-center">
